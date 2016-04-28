@@ -9,7 +9,7 @@
 			</div>
 			<div class="panel-body">
 				by <%= blog_post.author %><br />
-				<p><%= blog_post.blog_entry %></p>
+				<p>Created at: <%= blog_post.created_at.strftime('%m/%d%Y at %I: at %I:%M%p') %><%= blog_post.blog_entry[0..250] %>... <%= link_to 'Read More', blog_post %></p>
 			</div>
 			<div class="panel-footer">
 				<%= link_to 'Show', blog_post, class: "btn btn-primary" %>

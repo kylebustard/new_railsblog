@@ -7,6 +7,7 @@
 	</div>
 	<div class="panel-body">
 		<p>by <%= @blog_post.author %></p>
+		<p><%= time_ago_in_words(@blog_post.created_at) %></p>
 		<p><%= @blog_post.blog_entry %></p>
 	</div>
 </div>
