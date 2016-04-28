@@ -1,21 +1,17 @@
 class CommentsController < ApplicationController
   	before_action :set_comment, only: [:edit, :update, :destroy]
 
-  def new
-  	@comment = Comment.new
-  end
-
   def edit
   end
 
   def create
-  	@comment = Comment.new(blog_post_params)
+  	@comment = Comment.new(comment_params)
 
   	respond_to do |format|
   		if @comment.save 
   			format.html {redirect_to blog_post_path(id: @comment.blog_post_id), notice: "Comment was created successfully."}
   		else 
-  			format.html {redirect_to blog_post_path(id: @comment.blog_post_id) notice: "Comment failed to post"}
+  			format.html {redirect_to blog_post_path(id: @comment.blog_post_id), notice: "Comment failed to post"}
   		end
   	end
   end
@@ -33,7 +29,7 @@ class CommentsController < ApplicationController
   def destroy
   	@comment.destroy
   	respond_to do |format|
-  		format.html {redirect_to blog_post_path(:id @comment.blog_post_id), notice: "Your comment was DESTROYED!!!"}
+  		format.html {redirect_to blog_post_path(id: @comment.blog_post_id), notice: "Your comment was DESTROYED!!!"}
   	end
   end
 

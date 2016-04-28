@@ -1,1 +1,4 @@
-_comment.html.erb
+<% @blog_post.comments.each do |comment| %>
+		<h4><%= comment.author %></h4>
+		<p><%= comment.comment_entry %></p>
+<% end %>

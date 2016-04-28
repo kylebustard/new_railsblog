@@ -1,2 +1,10 @@
-<h1>BlogPosts#edit</h1>
-<p>Find me in app/views/blog_posts/edit.html.erb</p>
+<h1>Editing Blog Post</h1>
+
+<div class="container">
+	<%= render "form" %>
+</div>
+
+<div>
+	<%= link_to 'Back', @blog_post %>
+	<%= link_to 'Home', blog_posts_path %>
+</div>	

@@ -1,2 +1,7 @@
-<h1>BlogPosts#new</h1>
-<p>Find me in app/views/blog_posts/new.html.erb</p>
+<h1>Create a New Blog Post</h1>
+
+<div class="container">
+	<%= render "form" %>
+</div>
+
+<%= link_to "Back", blog_posts_path, class: "btn btn-default" %>

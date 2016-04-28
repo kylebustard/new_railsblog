@@ -13,6 +13,7 @@ class BlogPostsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
   end
 
   def create
@@ -30,7 +31,7 @@ class BlogPostsController < ApplicationController
   def update
   	respond_to do |format|
   		if @blog_post.update(blog_post_params)
-  			format.html {redirect_to @blog_post}, notice: "Blog post was updated successfully."}
+  			format.html {redirect_to @blog_post, notice: "Blog post was updated successfully."}
   		else
   			format.html {render :edit}
   		end

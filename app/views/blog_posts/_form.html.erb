@@ -1,1 +1,27 @@
-_form.html.erb
+<%= form_for(@blog_post) do |f| %>
+	<% if @blog_post.errors.any? %>
+	<div class="error_explanation">
+		<h2><%= pluralize(@blog_post.errors.count, "error") %> prohibited this blog post from being saved:</h2>
+
+		<ul>
+			<% @blog_post.errors.full_messages.
+				each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+		</ul>
+	</div>
+	<% end %>
+
+	<div class="formgroup">
+		<%= f.text_field :title, class: "form-control", placeholder: "Enter your blog post title: " %>
+	</div>
+	<div class="formgroup">
+		<%= f.text_field :author, class: "form-control", placeholder: "Enter your name: " %>
+	</div>
+	<div class="formgroup">
+		<%= f.text_area :blog_entry, class: "form-control", rows: "12", placeholder: "Start typing away..." %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Post", class: "btn btn-default" %>
+	</div>
+<% end %>
